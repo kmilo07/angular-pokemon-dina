@@ -1,0 +1,31 @@
+.circulo {
+  width: 50px;
+  height: 50px;
+  margin-left: 88%;
+  margin-top: -36px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: DarkGrey;
+  border: 2px solid black;
+}
+
+.footer {
+  float: left;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 10px;
+  border-top: 2px solid black;
+  padding: 10px 10px 0 10px;
+  height: 100px;
+  color: #fff;
+  background: #3c3c3c;
+}
+
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}

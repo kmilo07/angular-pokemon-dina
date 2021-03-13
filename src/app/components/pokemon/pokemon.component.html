@@ -1,0 +1,59 @@
+<div class="container">
+  <form class="form-inline">
+    <div class="buscador">
+      <input placeholder="Bulbasaur, Charizard..." name="entrada" [(ngModel)]="entrada" type="text" #buscar><span class="barra"  ></span>
+
+    </div>
+    <button class="btn btn-secondary posicion" (click)="buscarPokemon(buscar.value)">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+      </svg>
+    </button>
+  </form>
+  <h3>Mis resultados</h3>
+
+</div>
+<div class="espacioTarjetas">
+  <div clase="contener" *ngFor="let poke of pokemones.reverse()">
+    <div class="card {{poke.types[0].type.name}}">
+      <div class="row">
+        <div class="col-sm-12 col-md-8 centrar contenido">
+          <img [src]="poke.sprites.front_default">
+          <img [src]="poke.sprites.front_shiny">
+        </div>
+        <div class="col-sm-12 col-md-3">
+          <div class="card-body">
+            <h5 class="card-title"><strong>{{poke.name | uppercase}}</strong></h5>
+            <h6><strong>Tipo:</strong> {{poke.types[0].type.name}}<span *ngIf="poke.types[1]?.type.name">,</span>
+              {{poke.types[1]?.type.name}}</h6>
+            <h6><strong>Movimientos:</strong></h6>
+            <div class="primera">
+              <p>{{poke.moves[0].move.name}}</p><span *ngIf="poke.moves[1]?.move.name">, </span>
+              <p>{{poke.moves[1]?.move.name}}</p>
+            </div>
+            <div class=" segunda">
+              <p>{{poke.moves[2]?.move.name}}</p><span *ngIf="poke.moves[3]?.move.name">, </span>
+              <p>{{poke.moves[3]?.move.name}}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="paginas">
+  <button *ngIf="atras"class="btn btn-outline-secondary" (click)="getPokemonsAtras(direccionAnterior)">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+    </svg>
+  </button>
+  {{contador}}
+  <button *ngIf="siguiente" class="btn btn-secondary"(click)="getPokemonsSiguientes(direccionSiguiente)">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+    </svg>
+  </button>
+</div>

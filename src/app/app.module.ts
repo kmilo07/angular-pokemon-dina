@@ -8,6 +8,7 @@ import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 import { PokemonComponent } from "./components/pokemon/pokemon.component";
 import { HttpClientModule } from "@angular/common/http";
 import { PokemonService } from "./services/pokemon.service";
+import { HomeComponent } from "./components/home/home.component";
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule],
@@ -15,7 +16,8 @@ import { PokemonService } from "./services/pokemon.service";
     AppComponent,
     FooterComponent,
     NavbarComponent,
-    PokemonComponent
+    PokemonComponent,
+    HomeComponent
   ],
   providers: [PokemonService],
   bootstrap: [AppComponent]
